@@ -27,9 +27,9 @@
                 <button id="btn-url">Shorten</button>
             </div>
 
-            <p id="validation-msg">Entered URL address is not valid!</p>
+            <p id="validation-msg" data-show="<?= (empty($data['error']) ? '0' : '1') ?>"><?= $data['error'] ?></p>
 
-            <a href="#" target="_blank" id="hash-url"></a>
+            <a href="<?= $data['url'] ?>" target="_blank" id="hash-url" data-show="<?= (empty($data['hash']) ? '0' : '1') ?>"><?= APP_PATH . '/' . $data['hash'] ?></a>
 
             <p class="remaining-urls-holder">Remainig URLs: <strong id="remaining-urls"><?= $data['urls']['remaining'] ?></strong>.</p>
 
