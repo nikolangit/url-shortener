@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+:root {
+    --text            : #fff;
+    --gradient-1      : #a8e063;
+    --gradient-2      : #56ab2f;
+    --placeholder     : #7ecd58;
+    --disabled-bg     : #56ab2f;
+    --disabled-text   : #4b9729;
+    --graident-degrees: 205deg;
+    --transition      : .3s;
+}
+
+::placeholder {
+    color: var(--placeholder);
+    font-style: italic;
+}
+
+::selection {
+    background-color: var(--gradient-2);
+    color: var(--text);
+}
+
+body {
+    min-height: 100vh;
+    background: var(--gradient-2);
+    background: -webkit-linear-gradient(var(--graident-degrees), var(--gradient-1), var(--gradient-2));
+    background: linear-gradient(var(--graident-degrees), var(--gradient-1), var(--gradient-2));
+    color: var(--text);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+footer {
+    margin-top: auto;
+    position: relative;
+}
+
+.container {
+    width: 75vw;
+    margin: auto;
+}
+
+.content {
+    text-align: center;
+}
+
+.form-group {
+    height: 4rem;
+    background: #d6ffc3;
+    border-radius: 10rem;
+    box-shadow: 0 0 1rem .1rem var(--gradient-2);
+    display: flex;
+}
+
+.icon-holder {
+    color: var(--gradient-2);
+    padding: .5rem .5rem .5rem 1rem;
+    border-radius: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem;
+}
+
+.icon-holder img {
+    height: 80%;
+}
+
+#url {
+    width: 100%;
+    background-color: inherit;
+    color: var(--gradient-2);
+    border: unset;
+    outline: none;
+    font-size: 2rem;
+    transition: var(--transition);
+}
+
+#url:focus {
+    background-color: #fff;
+}
+
+#btn-url {
+    background: var(--gradient-2);
+    color: var(--text);
+    margin: .2rem;
+    border: unset;
+    border-radius: 3rem;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: .8;
+    transition: var(--transition);
+}
+
+#btn-url:hover {
+    opacity: 1;
+}
+
+.form-group.disabled,
+.form-group.disabled .icon-holder,
+.form-group.disabled #url,
+.form-group.disabled #btn-url,
+#url:disabled,
+#url:disabled::placeholder,
+#btn-url:disabled {
+    background-color: var(--disabled-bg);
+    color: var(--disabled-text);
+}
+
+#new-url {
+    color: blue;
+    display: block;
+    visibility: hidden;
+}
+
+#validation-msg {
+    color: #df0202;
+    visibility: hidden;
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
+.remaining-urls-holder {
+    font-size: 2rem;
+}
+
+#remaining-urls {
+    font-size: 4rem;
+}
+
+#timer {
+    font-size: 15vh;
+}
+
+img#wave {
+    position: relative;
+    bottom: -4px;
+}
+
+@media (max-width: 756px) {
+    .container {
+        width: 95vw;
+    }
+
+    .form-group {
+        height: 3rem;
+    }
+
+    #url {
+        font-size: 1.2rem;
+    }
+
+    .content {
+        padding-top: 5vh;
+    }
+
+    #timer {
+        font-size: 21vw;
+    }
+}
