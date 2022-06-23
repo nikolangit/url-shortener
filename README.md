@@ -10,6 +10,6 @@ URL shortener with custom "imitation" cronjob and the limited number of URL's th
 
 ----
 
-If you want to change the database configuration or database name, you'll have to changes values in these files:
+If you want to change the database configuration you'll have to changes values inside these files:
 - `database.php`
 - `app/classes/Database.php` on line 16.
