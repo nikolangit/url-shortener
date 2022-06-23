@@ -1,36 +1,59 @@
 <?php
 
+/**
+ * Pages handler.
+ *
+ * It handles page methods and functions.
+ *
+ * @copyright  Copyright (©) 2022 (https://nikolangit.github.io/)
+ * @author     Nikola Nikolić <rogers94@gmail.com>
+ * @link       https://nikolangit.github.io/
+ */
 class PagesController
 {
 
+    /**
+     * It previews homepage.
+     *
+     * @author Nikola Nikolić <rogers94@gmail.com>
+     * @param  void
+     * @return void
+     */
     public static function home()
     {
-        $response = Globals::getResponseArr();
+        $ret = Globals::getResponseArr();
 
-        return View::load('home', $response);
+        View::load('home', $ret);
     }
 
+    /**
+     * It previews page for loading URL's.
+     *
+     * @author Nikola Nikolić <rogers94@gmail.com>
+     * @param  void
+     * @return void
+     */
     public static function load()
     {
-        $response = Globals::getResponseArr();
+        $ret = Globals::getResponseArr();
 
         $hash = substr(Request::uri(), 1, 8);
 
         $hashData = Hash::get($hash);
 
         if (empty($hashData)) {
-            $response['error'] = 'Hash doesn\'t exists.';
-            View::load('home', $response);
+            $ret['error'] = 'Hash doesn\'t exists.';
+            View::load('home', $ret);
         }
 
         Hash::update($hash);
 
-        $response = array_merge(
-            $response,
+        $ret = array_merge(
+            $ret,
             $hashData
         );
 
-        View::load('load', $response);
+        View::load('load', $ret);
     }
 
 }

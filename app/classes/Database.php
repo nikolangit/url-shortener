@@ -1,13 +1,22 @@
 <?php
 
+/**
+ * ___ handler.
+ *
+ * It handles ___ methods and functions.
+ *
+ * @copyright  Copyright (©) 2022 (https://nikolangit.github.io/)
+ * @author     Nikola Nikolić <rogers94@gmail.com>
+ * @link       https://nikolangit.github.io/
+ */
 class Database
 {
 
-    private $host   = 'localhost';
-    private $user   = 'root';
-    private $pswd   = '';
-    private $name   = 'url_shortener';
-    private $prefix = '';
+    // Database configuration.
+    private $host = 'localhost';
+    private $user = 'root';
+    private $pswd = '';
+    private $name = 'url_shortener';
 
     private $con;
     private $stmt;
@@ -26,6 +35,13 @@ class Database
         );
     }
 
+    /**
+     * It returns data type of value for PDO.
+     *
+     * @author Nikola Nikolić <rogers94@gmail.com>
+     * @param  mixed $value Value to check the data type.
+     * @return mixed        Data type as PDO constant.
+     */
     private function bind_type($value)
     {
         $ret = PDO::PARAM_NULL;
@@ -40,6 +56,14 @@ class Database
         return $ret;
     }
 
+    /**
+     * Prepared query to be executed.
+     *
+     * @author Nikola Nikolić <rogers94@gmail.com>
+     * @param  string $sql   SQL query.
+     * @param  array  $binds Parameters to bind.
+     * @return
+     */
     public function query(string $sql, array $binds = [])
     {
         $this->stmt = $this->con->prepare($sql);
@@ -51,6 +75,12 @@ class Database
         return $this;
     }
 
+    /**
+     * It returns all records from the table.
+     *
+     * @author Nikola Nikolić <rogers94@gmail.com>
+     * @return json
+     */
     public function get()
     {
         $ret = [];
@@ -64,6 +94,12 @@ class Database
         return $ret;
     }
 
+    /**
+     * It returns first record from the table.
+     *
+     * @author Nikola Nikolić <rogers94@gmail.com>
+     * @return json
+     */
     public function first()
     {
         $ret = [];
@@ -80,6 +116,12 @@ class Database
         return $ret;
     }
 
+    /**
+     * It closes the PDO connection.
+     *
+     * @author Nikola Nikolić <rogers94@gmail.com>
+     * @return void
+     */
     private function close()
     {
         $this->con  = null;

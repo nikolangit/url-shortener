@@ -23,13 +23,13 @@
                 <span class="icon-holder">
                     <i class="fa fa-link"></i>
                 </span>
-                <input type="text" id="url" placeholder="Your link here (max 2048 characters)" autofocus />
-                <button id="btn-url">Shorten</button>
+                <input type="text" id="url" placeholder="Your link here (max 2048 characters)" autofocus <?= ($data['urls']['remaining'] ? '' : 'disabled') ?> />
+                <button id="btn-url" <?= ($data['urls']['remaining'] ? '' : 'disabled') ?>>Shorten</button>
             </div>
 
             <p id="validation-msg" data-show="<?= (empty($data['error']) ? '0' : '1') ?>"><?= $data['error'] ?></p>
 
-            <a href="<?= $data['url'] ?>" target="_blank" id="hash-url" data-show="<?= (empty($data['hash']) ? '0' : '1') ?>"><?= APP_PATH . '/' . $data['hash'] ?></a>
+            <a href="<?= $data['url'] ?>" target="_blank" id="hash-url" data-show="<?= (empty($data['hash']) ? '0' : '1') ?>"><?= APP_PATH . $data['hash'] ?></a>
 
             <p class="remaining-urls-holder">Remainig URLs: <strong id="remaining-urls"><?= $data['urls']['remaining'] ?></strong>.</p>
 
@@ -38,11 +38,18 @@
             <div id="timer"><?= $data['timer']['formated'] ?></div>
         </div>
     </main>
-    
+
     <footer>
         <img src="/public/imgs/wave.svg" id="wave">
     </footer>
 
+    <script>
+        const CRONJOB_TIME = <?= CRONJOB_TIME ?>,
+            APP_PATH       = '<?= APP_PATH ?>'
+        ;
+
+        let time = <?= $data['timer']['number'] ?>;
+    </script>
     <script src="/public/js/main.js"></script>
 
 </body>
