@@ -1,6 +1,6 @@
 # URL shortener
 
-![URL shortener preview image](https://nikolangit.github.io/assets/imgs/projects/url-shortener.jpg)
+![URL shortener preview image](screenshot.jpg)
 
 URL shortener with custom made "imitation" of cron job and limited number for saved URL's.
 
