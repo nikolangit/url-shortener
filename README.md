@@ -2,7 +2,7 @@
 
 ![URL shortener preview image](https://nikolangit.github.io/assets/imgs/projects/url-shortener.jpg)
 
-URL shortener with custom "imitation" cronjob and the limited number of URL's that are deleted after defined time.
+URL shortener with custom made "imitation" of cron job and limited number for saved URL's.
 
 ## Installation
 
